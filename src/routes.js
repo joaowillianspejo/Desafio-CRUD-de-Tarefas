@@ -57,9 +57,13 @@ export const routes = [
         updated_at: new Date(),
       };
 
-      database.update('tasks', id, taskUpdated);
+      const updated = database.update('tasks', id, taskUpdated);
 
-      return response.writeHead(204).end();
+      if (updated) {
+        return response.writeHead(204).end();
+      }
+
+      return response.writeHead(404).end('Task not found');
     },
   },
   {
@@ -68,9 +72,13 @@ export const routes = [
     handler: (request, response) => {
       const { id } = request.params;
 
-      database.delete('tasks', id);
+      const deleted = database.delete('tasks', id);
 
-      return response.writeHead(204).end();
+      if (deleted) {
+        return response.writeHead(204).end();
+      }
+
+      return response.writeHead(404).end('Task not found');
     },
   },
   {

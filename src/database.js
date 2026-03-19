@@ -59,7 +59,11 @@ export class Database {
       };
 
       this.#persist();
+
+      return true;
     }
+
+    return false;
   }
 
   delete(table, id) {
@@ -69,6 +73,10 @@ export class Database {
       this.#database[table].splice(rowIndex, 1);
 
       this.#persist();
+
+      return true;
     }
+
+    return false;
   }
 }
