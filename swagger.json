@@ -30,11 +30,41 @@
         },
         "responses": {
           "201": {
-            "description": "Created",
+            "description": "Created"
+          }
+        }
+      },
+      "get": {
+        "summary": "List tasks",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "description": "Termo de busca para filtrar tarefas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "description": { "type": "string" },
+                      "completed_at": { "type": "string", "nullable": true },
+                      "created_at": { "type": "string" },
+                      "updated_at": { "type": "string" }
+                    }
+                  }
                 }
               }
             }
