@@ -26,6 +26,20 @@ Via terminal, na pasta do projeto, rode os seguinte comando:
 npm run dev
 ```
 
+### 📥 Para importar as Tasks massivamento via arquivo .csv
+
+Em um terminal rode o seguite comando para subir o projeto:
+
+```Shell
+npm run dev
+```
+
+Em uma nova aba do terminal, na pasta do projeto, rode os seguinte comando:
+
+```Shell
+npm run import-csv
+```
+
 ---
 
 Made with ❤️ by [João Willian](https://github.com/joaowillianspejo).

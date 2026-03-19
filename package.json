@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "import-csv": "node src/utils/import-csv.js"
   },
   "keywords": [],
   "author": "João Willian",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "csv-parse": "^6.2.0"
+  }
 }
