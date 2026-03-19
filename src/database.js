@@ -79,4 +79,25 @@ export class Database {
 
     return false;
   }
+
+  complete(table, id, data) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id === id);
+
+    if (rowIndex > -1) {
+      this.#database[table][rowIndex] = {
+        id,
+        title: this.#database[table][rowIndex].title,
+        description: this.#database[table][rowIndex].description,
+        completed_at: data.completed_at,
+        created_at: this.#database[table][rowIndex].created_at,
+        updated_at: data.updated_at,
+      };
+
+      this.#persist();
+
+      return true;
+    }
+
+    return false;
+  }
 }

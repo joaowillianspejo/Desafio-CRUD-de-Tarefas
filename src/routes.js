@@ -83,7 +83,22 @@ export const routes = [
   },
   {
     method: 'PATCH',
-    path: buildRoutePath('/tasks/:id/completeat'),
-    handler: (request, response) => {},
+    path: buildRoutePath('/tasks/:id/complete'),
+    handler: (request, response) => {
+      const { id } = request.params;
+
+      const taskCompleted = {
+        completed_at: new Date(),
+        updated_at: new Date(),
+      };
+
+      const completed = database.complete('tasks', id, taskCompleted);
+
+      if (completed) {
+        return response.writeHead(204).end();
+      }
+
+      return response.writeHead(404).end('Task not found');
+    },
   },
 ];
